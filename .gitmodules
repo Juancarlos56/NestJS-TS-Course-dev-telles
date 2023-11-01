@@ -1,3 +1,6 @@
 [submodule "03-pokedex-project-nest-js"]
 	path = 03-pokedex-project-nest-js
 	url = .\\03-pokedex-project-nest-js\\
+[submodule "04-teslo-shop"]
+	path = 04-teslo-shop
+	url = .\\04-teslo-shop\\
