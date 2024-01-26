@@ -1,4 +1,4 @@
-# Tranvia Cuenca Backend Bici Publica
+# Template para proyecto con NestJs 
 
 ### Desarrollo 
 
@@ -11,7 +11,7 @@
 7. Levantar ```npm run dev:start```
 8. Para revisar la documentación del proyecto ingresar al navegador: ``` http://localhost:3000/api/v1/ ```
 9. Generar migraciones, esto solo se debe realizar para ver la estructura que va a tener nuestro código, no es necesario se puede omitir. 
-``` npm run migration:generate --name=createDatabaseStructureMultiTravelv1 ```
+``` npm run migration:generate --name=createDatabaseStructure ```
 
 ### Tecnologías 
 
@@ -19,7 +19,7 @@
 - NestJS: 10.0
 - PostgreSQL: Desarrollo: 14.3 y Producción: 13
 - Docker
-- Oraclelinux:8
+- Oraclelinux:8-slim
 - Oracle-instantclient-basic
 
 ### Dependencias
@@ -48,7 +48,7 @@ Para ambientes de pruebas se trabaja con la base de datos de desarrollo del tran
 2. Configuración de DB_TNS: esta variable corresponde a la cadena de conexión con oracle para entorno de desarrollo dentro del archivo .env.staging y demás variables necesarias.
 3. Para generar un nuevo JWT_SECRET para los token de acceso, ejecutar ```node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"``` y modificar el valor. 
 4. Para la construcción de la imagen de Docker para versión de pruebas ejecutar: docker build --build-arg STAGE=staging -t nombre_de_la_imagen:staging.v1
-5. Para correr la imagen: docker run -dit -p 3000:3000 --add-host desacue01-bd-tc.tcuenca.pri:X.X.X.X nombre_de_la_imagen:staging.v1
+5. Para correr la imagen: docker run -dit -p 3000:3000 --add-host X.X.X.X:X.X.X.X nombre_de_la_imagen:staging.v1
 6. Para revisar la documentación del proyecto ingresar al navegador: ``` http://localhost:3000/api/v1/ ```
 
 ### Ambiente de Producción
@@ -59,7 +59,7 @@ Para ambientes de pruebas se trabaja con la base de datos de producción en Potg
 2. Configuración de DB_TNS: esta variable corresponde a la cadena de conexión con oracle para entorno de producción dentro del archivo .env.production y demás variables necesarias.
 3. Para generar un nuevo JWT_SECRET para los token de acceso, ejecutar ```node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"``` y modificar el valor. 
 4. Para la construcción de la imagen de Docker para versión de pruebas ejecutar: docker build --build-arg STAGE=production -t nombre_de_la_imagen:production.v1
-5. Para correr la imagen: docker run -dit -p 3000:3000 --add-host prodcue01-bd-tc.tcuenca.pri:X.X.X.X  nombre_de_la_imagen:production.v1
+5. Para correr la imagen: docker run -dit -p 3000:3000 --add-host x.x.x.x.pri:X.X.X.X  nombre_de_la_imagen:production.v1
 6. Para revisar la documentación del proyecto ingresar al navegador: ``` http://localhost:3000/api/v1/ ```
 
 ### Configuración de Variable de entorno dentro de Kubernetes 
@@ -93,6 +93,6 @@ spec:
       hostAliases:
         - ip: 'X.X.X.X'
           hostnames:
-            - 'desacue01-bd-tc.tcuenca.pri' # use this for staging
-            - 'prodcue01-bd-tc.tcuenca.prii' # use this for production
+            - 'x.x.x.x' # use this for staging
+            - 'x.x.x.x' # use this for production
 ```
